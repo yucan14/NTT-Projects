@@ -1,0 +1,28 @@
+<a href="http://localhost:4200/login" class="previous">&laquo; Logout</a>
+
+<p align="right" (click)="detailProfile()">Welcome, {{this.name}}</p>
+
+<pagination-controls
+  (pageChange)="handlePageChange($event)"
+></pagination-controls>
+
+<ul>
+  <li bx bx-plus
+    *ngFor="let post of listPost | paginate: {
+              itemsPerPage: pageSize,
+              currentPage: page,
+              totalItems: count
+            }"
+  >
+  
+  <p>
+    {{ post.body }}
+   
+  </p>  
+  <p (click)="detail(post.id)">
+    Jumlah Comments{{post.totalComments}}
+    Detail
+  </p>
+   
+  </li>
+</ul>

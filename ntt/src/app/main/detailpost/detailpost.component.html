@@ -1,0 +1,31 @@
+<a href="http://localhost:4200/profile" class="previous">&laquo; Previous</a>
+
+<p align="right">Welcome, {{this.name}}</p>
+
+<ul>
+  <li bx bx-plus
+ 
+  >
+  
+  <p>
+    {{ this.listPost.body }}
+   
+  </p>  
+  <p (click)="showComments()" >
+    Jumlah Comments{{this.listPost.totalComments}}
+    Show Comments
+  </p>
+
+  </li>
+  <div *ngIf="hideComments">
+  <li *ngFor="let comments of listComments" >
+    <p>
+        {{comments.name}}
+    </p>
+    <p >
+    
+        {{comments.body}}
+       </p>
+  </li>
+</div>
+</ul>
